@@ -1,3 +1,6 @@
+// Will compute the running sum of a 1 dimensional array
+// https://leetcode.com/problems/running-sum-of-1d-array/
+
 #include <vector>
 #include <iostream>
 
