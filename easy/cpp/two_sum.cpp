@@ -10,9 +10,9 @@ std::vector<int> twoSum(std::vector<int>& nums, int target) {
             if(nums[x] + nums[y] == target) { return {x, y}; }
         }
     }
+    return {};
 }
 
-return {};
 int main() {
     std::vector<int> nums {1, 2, 3, 4, 5};
     auto result = twoSum(nums, 7);
