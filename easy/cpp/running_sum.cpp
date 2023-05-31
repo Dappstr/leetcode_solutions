@@ -1,9 +1,6 @@
-// Will compute the running sum of a 1 dimensional array
-// https://leetcode.com/problems/running-sum-of-1d-array/
+//Will return a vector of sums from the input vector in order
 
 #include <vector>
-#include <iostream>
-
 std::vector<int> runningSum(std::vector<int>& nums) {
         std::vector<int> output;
 
@@ -12,16 +9,13 @@ std::vector<int> runningSum(std::vector<int>& nums) {
             num = num + nums[x];
             output.push_back(num);
         }
-
         return output;
 }
 
-int main()
-{
-    std::vector<int> nums = {1, 2, 3, 4};
-    std::vector<int> output = runningSum(nums);
+int main() {
+    std::vector<int> nums {1, 2, 3, 4, 5};
+    std::vector<int> sums = runningSum(nums);
 
-    for(int i : output) {
-        std::cout << i << ' ';
-    }
+
+    return 0;
 }
