@@ -1,0 +1,39 @@
+class Solution {
+public:
+    bool is_prime(int num) {
+        if (num <= 1) return false;
+        if (num == 2) return true; // 2 is the only even prime number
+        if (num % 2 == 0) return false; // Exclude even numbers
+
+        for (size_t i = 3; i <= std::sqrt(num); i += 2) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+
+    int maximumPrimeDifference(vector<int>& nums) {
+        int min_indx {}, max_indx{}, dst{};
+    
+        if (nums.size() == 2) {
+            if (is_prime(nums[0]) && is_prime(nums[1])) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+
+        for(size_t i = 0; i < nums.size(); ++i) {
+            if(is_prime(nums[i])) {
+                min_indx = i;
+                for(size_t j = i; j < nums.size(); ++j) {
+                    if(is_prime(nums[j]) && j > max_indx) {
+                        max_indx = j;
+                    }
+                }
+                break;
+            }
+        }
+        dst = max_indx - min_indx;
+        return dst;
+    }
+};
